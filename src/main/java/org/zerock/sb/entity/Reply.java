@@ -23,9 +23,12 @@ public class Reply { //엔티티 인데 아이디가 없어서 이렇게만 하�
     private String replyer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Board board; //옛날엔 bno만 걸었지만 객체와 객체기 때문에 근데 오류 엔티티와 엔티티간의 관계를 서술해주지 않으면 오류
-
+    private Board board;
 
     @CreationTimestamp
     private LocalDateTime replyDate;
+
+    public void setText(String text){
+        this.replyText = text;
+    }
 }

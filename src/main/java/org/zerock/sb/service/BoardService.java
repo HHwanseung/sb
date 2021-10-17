@@ -1,10 +1,11 @@
 package org.zerock.sb.service;
 
-import org.springframework.transaction.annotation.Transactional;
 import org.zerock.sb.dto.BoardDTO;
 import org.zerock.sb.dto.BoardListDTO;
 import org.zerock.sb.dto.PageRequestDTO;
 import org.zerock.sb.dto.PageResponseDTO;
+
+import javax.transaction.Transactional;
 
 @Transactional
 public interface BoardService {

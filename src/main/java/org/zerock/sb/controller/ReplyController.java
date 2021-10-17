@@ -10,8 +10,8 @@ import org.zerock.sb.service.ReplyService;
 
 @RestController
 @RequiredArgsConstructor
-@Log4j2
 @RequestMapping("/replies")
+@Log4j2
 public class ReplyController {
 
     private final ReplyService replyService;
@@ -34,6 +34,28 @@ public class ReplyController {
 
     }
 
+    @DeleteMapping("/{bno}/{rno}")
+    public PageResponseDTO<ReplyDTO> remove(
+        @PathVariable("bno") Long bno,
+        @PathVariable("rno") Long rno,
+        PageRequestDTO requestDTO) {
+
+        return replyService.remove(bno,rno,requestDTO);
+    }
+
+    @PutMapping("/{bno}/{rno}")
+    public PageResponseDTO<ReplyDTO> modify(
+            @PathVariable("bno") Long bno,
+            @PathVariable("rno") Long rno,
+            @RequestBody ReplyDTO replyDTO,
+            PageRequestDTO requestDTO ) {
+
+        log.info("bno :" + bno);
+        log.info("rno :" + rno);
+        log.info("replyDTO :" + replyDTO);
+
+        return replyService.modify(replyDTO, requestDTO);
+    }
 
 
 }
