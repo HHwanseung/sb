@@ -6,14 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardDTO {
+@Data
+public class DiaryDTO {
 
-    private Long bno;
+    private Long dno;
 
     private String title;
 
@@ -23,4 +24,9 @@ public class BoardDTO {
 
     private LocalDateTime regDate;
     private LocalDateTime modDate;
+
+    private List<String> tags;
+    private List<DiaryPictureDTO> pictures;
+
+
 }
