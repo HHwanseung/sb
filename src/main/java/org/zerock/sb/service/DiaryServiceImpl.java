@@ -1,5 +1,6 @@
 package org.zerock.sb.service;
 
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -10,10 +11,10 @@ import org.zerock.sb.repository.DiaryRepository;
 
 import java.util.Optional;
 
+
 @Service
 @RequiredArgsConstructor
 @Log4j2
-
 public class DiaryServiceImpl implements DiaryService{
 
     private final ModelMapper modelMapper;
@@ -41,5 +42,4 @@ public class DiaryServiceImpl implements DiaryService{
 
         return dto;
     }
-
 }

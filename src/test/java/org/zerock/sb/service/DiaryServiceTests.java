@@ -53,7 +53,7 @@ public class DiaryServiceTests {
     @Transactional(readOnly = true)
 
     @Test
-    public void tetRead() {
+    public void testRead() {
 
         Long dno = 101L;
 
@@ -61,9 +61,10 @@ public class DiaryServiceTests {
 
         log.info(dto);
 
+        dto.getPictures().forEach(diaryPictureDTO -> log.info(diaryPictureDTO));
+
         log.info(dto.getPictures().size());
 
-        dto.getPictures().forEach(diaryPictureDTO -> log.info(diaryPictureDTO));
     }
 
 
