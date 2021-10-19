@@ -17,7 +17,5 @@ public class BoardListDTO {
     private String title;
     private String writer;
     private LocalDateTime regDate;
-    private Long replyCount;
-
-
+    private long replyCount;
 }

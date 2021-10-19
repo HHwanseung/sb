@@ -7,18 +7,16 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="tbl_diary")
+@Table(name = "tbl_diary")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = {"tags","pictures"})
+@ToString(exclude = {"tags", "pictures"})
 public class Diary {
 
     @Id
@@ -37,17 +35,36 @@ public class Diary {
     @UpdateTimestamp
     private LocalDateTime modDate;
 
-    @ElementCollection(fetch = FetchType.LAZY)
+    @ElementCollection
     @CollectionTable(name = "tbl_diary_tag")
     @Fetch(value = FetchMode.JOIN)
     @BatchSize(size = 50)
     @Builder.Default
+//    private List<String> tags;
+//    private Collection<String> tags;
     private Set<String> tags = new HashSet<>();
 
-    @ElementCollection(fetch = FetchType.LAZY)
+    @ElementCollection
     @CollectionTable(name = "tbl_diary_picture")
     @Fetch(value = FetchMode.JOIN)
     @BatchSize(size = 50)
     private Set<DiaryPicture> pictures;
 
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setTags(Set<String> tags) {
+        this.tags = tags;
+    }
+
+    public void setPictures(Set<DiaryPicture> pictures) {
+        this.pictures = pictures;
+    }
 }
+

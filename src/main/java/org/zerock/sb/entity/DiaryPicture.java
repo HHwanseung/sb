@@ -10,6 +10,7 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 @Getter
 @ToString
+@EqualsAndHashCode(of = "uuid")
 public class DiaryPicture implements Comparable<DiaryPicture>{
 
     private String uuid;
@@ -17,9 +18,8 @@ public class DiaryPicture implements Comparable<DiaryPicture>{
     private String savePath;
     private int idx;
 
-
     @Override
     public int compareTo(DiaryPicture o) {
-        return this.idx - o.idx  ;
+        return o.idx - this.idx;
     }
 }

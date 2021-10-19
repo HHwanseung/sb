@@ -12,13 +12,10 @@ public interface ReplyRepository extends JpaRepository<Reply, Long> {
 
     List<Reply> findReplyByBoard_BnoOrderByRno(Long bno);
 
-    @Query("select r from Reply r where r.board.bno = :bno") //댓글가져오는거
+    @Query("select r from Reply r where r.board.bno = :bno")
     Page<Reply> getListByBno(Long bno, Pageable pageable);
 
     @Query("select count(r) from Reply r where r.board.bno = :bno")
     int getReplyCountOfBoard(Long bno);
-
-
-
 
 }

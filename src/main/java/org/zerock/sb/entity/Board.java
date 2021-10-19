@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter //불편상태로 만들어줌
+@Getter
 @ToString
 public class Board {
 

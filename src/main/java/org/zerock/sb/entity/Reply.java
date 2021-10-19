@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @ToString(exclude = "board")
-public class Reply { //엔티티 인데 아이디가 없어서 이렇게만 하면 오류
+public class Reply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +27,4 @@ public class Reply { //엔티티 인데 아이디가 없어서 이렇게만 하�
 
     @CreationTimestamp
     private LocalDateTime replyDate;
-
-    public void setText(String text){
-        this.replyText = text;
-    }
 }

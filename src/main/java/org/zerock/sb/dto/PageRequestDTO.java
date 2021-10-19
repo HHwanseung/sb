@@ -1,6 +1,5 @@
 package org.zerock.sb.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

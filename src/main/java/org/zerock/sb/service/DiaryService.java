@@ -1,8 +1,9 @@
 package org.zerock.sb.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.zerock.sb.dto.DiaryDTO;
-
-import javax.transaction.Transactional;
+import org.zerock.sb.dto.PageRequestDTO;
+import org.zerock.sb.dto.PageResponseDTO;
 
 @Transactional
 public interface DiaryService {
@@ -10,4 +11,7 @@ public interface DiaryService {
     Long register(DiaryDTO dto);
 
     DiaryDTO read(Long dno);
+
+    PageResponseDTO<DiaryDTO> getList(PageRequestDTO pageRequestDTO);
+
 }

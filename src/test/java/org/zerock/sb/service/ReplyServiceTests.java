@@ -19,22 +19,21 @@ public class ReplyServiceTests {
 
         ReplyDTO replyDTO = ReplyDTO.builder()
                 .bno(198L)
-                .replyText("198댓글입니다.")
-                .replyer("foo")
+                .replyText("198댓글")
+                .replyer("edum")
                 .build();
 
         replyService.register(replyDTO);
-
     }
 
     @Test
     public void testList() {
-        Long bno = 199L;
+
+        Long bno = 195L;
         PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
                 .page(-1)
                 .build();
 
         log.info(replyService.getListOfBoard(bno, pageRequestDTO));
     }
-
 }

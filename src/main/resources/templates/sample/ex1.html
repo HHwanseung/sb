@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/layout2">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +18,11 @@
         <code>#sidebarToggle</code>
         ID which will toggle the menu when clicked.
     </p>
-   <h1>Ex1</h1>
-   <h2 th:text="${'Hello1'}"></h2>
-   <h2>[[${'Hello2'}]]</h2>
+    <h1>Ex1</h1>
+    <!--원래의 사용법-->
+    <h2 th:text="${'Hello1'}"></h2>
+    <!--인라인 기법-->
+    <h2>[[${'Hello2'}]]</h2>
 </div>
 
 </body>

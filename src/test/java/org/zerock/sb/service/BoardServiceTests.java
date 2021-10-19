@@ -16,30 +16,29 @@ public class BoardServiceTests {
     private BoardService boardService;
 
     @Test
-    public void testModify(){
+    public void testModify() {
 
         BoardDTO boardDTO = BoardDTO.builder()
                 .bno(201L)
                 .title("한글제목")
-                .content("한글 내용")
+                .content("한글내용")
                 .build();
 
         boardService.modify(boardDTO);
     }
 
     @Test
-    public void testRegister(){
+    public void testRegister() {
 
-        IntStream.rangeClosed(1,200).forEach(i -> {
+        IntStream.rangeClosed(1, 200).forEach(i -> {
             BoardDTO boardDTO = BoardDTO.builder()
-                    .title("Title......" +i)
-                    .content("Content...." +i)
-                    .writer("user...." +( i% 10 ))
+                    .title("title..." + i)
+                    .content("content...." + i)
+                    .writer("user" + (i%10))
                     .build();
 
             Long bno = boardService.register(boardDTO);
-            log.info("BNO: " + bno);
+            log.info("BNO" + bno);
         });
-
     }
 }
