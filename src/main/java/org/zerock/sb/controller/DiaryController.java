@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.sb.dto.DiaryDTO;
+import org.zerock.sb.dto.DiaryListDTO;
 import org.zerock.sb.dto.PageRequestDTO;
 import org.zerock.sb.dto.PageResponseDTO;
 import org.zerock.sb.service.DiaryService;
@@ -45,7 +46,7 @@ public class DiaryController {
     @GetMapping("/list")
     public void list(PageRequestDTO pageRequestDTO, Model model) {
 
-        PageResponseDTO<DiaryDTO> responseDTO = diaryService.getList(pageRequestDTO);
+        PageResponseDTO<DiaryListDTO> responseDTO = diaryService.getListWithFavorite(pageRequestDTO);//diaryService.getList(pageRequestDTO);
 
         model.addAttribute("res", responseDTO);
 

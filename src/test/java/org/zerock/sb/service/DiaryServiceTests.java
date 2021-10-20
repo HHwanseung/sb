@@ -4,12 +4,10 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.zerock.sb.dto.DiaryDTO;
-import org.zerock.sb.dto.DiaryPictureDTO;
-import org.zerock.sb.dto.PageRequestDTO;
-import org.zerock.sb.dto.PageResponseDTO;
+import org.zerock.sb.dto.*;
 import org.zerock.sb.entity.DiaryPicture;
 
 import java.util.List;
@@ -82,5 +80,15 @@ public class DiaryServiceTests {
             log.info(diaryDTO.getPictures());
             log.info("--------------------------");
         });
+    }
+
+    @Test
+    public void testList2() {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().build();
+
+        PageResponseDTO<DiaryListDTO> responseDTO
+                = diaryService.getListWithFavorite(pageRequestDTO);
+
+        log.info(responseDTO);
     }
 }
