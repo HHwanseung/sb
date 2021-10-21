@@ -29,4 +29,8 @@ public class Member {
     @Builder.Default
     @ElementCollection(fetch = FetchType.LAZY)
     private Set<MemberRole> roleSet = new HashSet<>();
+
+    public void changePassword(String password){
+        this.mpw = password;
+    }
 }
